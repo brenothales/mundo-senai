@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "home#index"
-  get 'home/home'
+  get 'home/dados_pessoais'
 
   get 'auth/:provider/callback', to: 'sessions#create'
 

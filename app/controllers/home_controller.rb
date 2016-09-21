@@ -3,8 +3,8 @@ class HomeController < ApplicationController
 
   def index
   end
-  
-  def home
+
+  def dados_pessoais
   end
 
   def set_auth
