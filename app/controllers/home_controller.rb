@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :set_auth
+#   before_action :set_auth
 
   def index
   end
@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   def dados_pessoais
   end
 
-  def set_auth
-    	@auth = session[:omniauth] if session[:omniauth]
-  end
+#   def set_auth
+#     	@auth = session[:omniauth] if session[:omniauth]
+#   end
 end

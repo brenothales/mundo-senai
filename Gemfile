@@ -45,10 +45,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
+group :production do
+  gem 'pg', '~> 0.15'
+end
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
+
+gem 'devise'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
@@ -56,3 +61,10 @@ gem "font-awesome-rails"
 
 
 
+
+
+
+
+# gem 'omniauth-google'
+
+gem 'omniauth-google-oauth2'
