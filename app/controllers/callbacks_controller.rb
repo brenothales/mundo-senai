@@ -8,9 +8,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def failure
-    redirect_to root_path
-  end
+
 
   def github
     @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -29,5 +27,8 @@ class CallbacksController < Devise::OmniauthCallbacksController
     redirect_to new_user_registration_url
     end
   end
-
+  
+  def failure
+    redirect_to root_path
+  end
 end
