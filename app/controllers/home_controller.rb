@@ -3,6 +3,9 @@ class HomeController < ApplicationController
 
   def index
   end
+  
+  def cadastro
+  end
 
   def dados_pessoais
   end

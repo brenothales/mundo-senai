@@ -1,0 +1,74 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"form-horizontal form-label-left" }) do |f| %>
+  <%= f.error_notification %>
+
+<div class="form-group">
+   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email <span class="required">*</span>  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+     <%= f.input :email, label: FALSE, required: true, autofocus: true, input_html: {class:"form-control col-md-7 col-xs-12"} %>
+    </div>
+</div>
+
+<div class="form-group">
+   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">CPF <span class="required">*</span>  </label>
+  <div class="col-md-3 col-sm-3 col-xs-12">
+     <%= f.input :cpf, label: false, required: true, input_html: {class:"form-control col-md-7 col-xs-12"} %>
+    </div>
+</div>
+
+<div class="form-group">
+   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Identidade <span class="required">*</span>  </label>
+  <div class="col-md-3 col-sm-3 col-xs-12">
+     <%= f.input :rg, label: false, required: true, autofocus: true, input_html: {class:"form-control col-md-3 col-xs-12"} %>
+    </div>
+</div>
+
+<div class="form-group">
+   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nacionalidade <span class="required">*</span>  </label>
+  <div class="col-md-3 col-sm-3 col-xs-12">
+     <%= f.input :nacionalidade, label: false, required: true, autofocus: true, input_html: {class:"form-control col-md-3 col-xs-12"} %>
+    </div>
+</div>
+
+<div class="form-group">
+   <%= f.label :telefone,  class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+  <div class="col-md-3 col-sm-3 col-xs-12">
+     <%= f.input :telefone, label: false, required: true, input_html: {class:"form-control col-md-3 col-xs-12"} %>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexo</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div id="gender" class="btn-group" data-toggle="buttons">
+      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+        <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+      </label>
+      <label class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+        <input type="radio" name="gender" value="female" checked=""> Female
+      </label>
+    </div>
+  </div>
+</div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+
+    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    <%= f.input :password_confirmation, required: false %>
+    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

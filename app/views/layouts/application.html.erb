@@ -3,11 +3,15 @@
 <head>
   <title>Example</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<%= render 'layouts/header' %>
+<body class="nav-md">
+ <% if current_user %>
+                    <%= link_to 'Edit Profile',edit_user_registration_path %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                <% else %>
+                    <%= link_to 'Login', new_user_session_path %>
+                <% end %>
 
   <div class="container">
     <% flash.each do |key, value| %>
@@ -15,6 +19,26 @@
     <% end %>
     <%= yield %>
   </div>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<script type="text/javascript">
+        $(document).ready(function () {
+            // Smart Wizard 	
+            $('#wizard').smartWizard();
 
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                //alert('Finish Clicked');
+            }
+        });
+
+        $(document).ready(function () {
+            // Smart Wizard	
+            $('#wizard_verticle').smartWizard({
+                transitionEffect: 'slide'
+            });
+
+        });
+    </script>
 </body>
+
 </html>
